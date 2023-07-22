@@ -18,7 +18,7 @@ function getComputerChoice()
 {
     
     let random = Math.floor((Math.random() * 3) + 1);
-    //console.log(random); debugging
+    // console.log(random); debugging
     
         if (random === 1)
         {
@@ -39,9 +39,12 @@ function getComputerChoice()
 }
 
 
+var scorePlayer = 0;
+var scoreComputer = 0;
 
 function playRockPaperScissors(playerSelection, computerSelection)
 {
+    
 if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "rock")
 {
     return ("Tie! You both chose " + computerSelection);
@@ -57,43 +60,71 @@ if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCas
 
 if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "paper")
 {
+    scoreComputer++;
     return ("You Lose! " + computerSelection + " beats " + playerSelection);
+
 }
 
 if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors")
 {
+    scorePlayer++;
     return ("You Win! " + playerSelection + " beats " + computerSelection);
 }
 
 if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock")
 {
+    scorePlayer++;
     return ("You Win! " + playerSelection + " beats " + computerSelection);
 }
 
 
 if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "scissors")
 {
+    scoreComputer++;
     return ("You Lose! " + computerSelection + " beats " + playerSelection);
 }
 
 if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "rock")
 {
+    scoreComputer++;
     return ("You Lose! " + computerSelection + " beats " + playerSelection);
 }
 
 
 if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper")
 {
+    scorePlayer++;
     return ("You Win! " + playerSelection + " beats " + computerSelection);
 }
 
 }
 
 
-let computerSelection = getComputerChoice();
-console.log(playRockPaperScissors(playerSelection, computerSelection));
 
 
+
+
+function game()
+{
+    let computerSelection = getComputerChoice();
+
+    console.log(playRockPaperScissors(playerSelection, computerSelection));
+
+}
+
+for(let d=0; d<5; d++){
+game();
+
+}
+
+if (scorePlayer > scoreComputer)
+    {
+        console.log("You Win with a score of " + scorePlayer + " to " + scoreComputer + ".");
+    }
+    else
+    {
+        console.log("You Lose with a score of " + scorePlayer + " to " + scoreComputer + ".");
+    }
 
 
 
