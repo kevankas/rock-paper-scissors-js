@@ -9,9 +9,25 @@
     <script>
 
 
-let playerSelection = prompt("Choose your sign");
-playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
+// let playerSelection = prompt("Choose your sign");
+// playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
 //console.log(playerSelection); debugging
+
+
+
+
+function game()
+{
+
+    let playerSelection = prompt("Choose your sign");
+    playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
+    let computerSelection = getComputerChoice();
+
+    console.log(playRockPaperScissors(playerSelection, computerSelection));
+
+}
+
+
 
 
 function getComputerChoice()
@@ -104,13 +120,7 @@ if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCas
 
 
 
-function game()
-{
-    let computerSelection = getComputerChoice();
 
-    console.log(playRockPaperScissors(playerSelection, computerSelection));
-
-}
 
 for(let d=0; d<5; d++){
 game();
