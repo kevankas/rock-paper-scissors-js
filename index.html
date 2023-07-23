@@ -128,8 +128,12 @@ game();
 }
 
 if (scorePlayer > scoreComputer)
-    {
+{
         console.log("You Win with a score of " + scorePlayer + " to " + scoreComputer + ".");
+    }
+    else if (scorePlayer == scoreComputer)
+    {
+        console.log("Draw! It's a tie with a score of " + scorePlayer + " to " + scoreComputer + ".");
     }
     else
     {
