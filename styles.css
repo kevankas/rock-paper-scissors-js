@@ -26,6 +26,13 @@ button
     width: 25%;
     font-size: 48px;
     
+
+    
+}
+.playerschoice, #result, #result2
+{
+    border:3px red solid;
+    min-width:20%;
 }
 .container
 {

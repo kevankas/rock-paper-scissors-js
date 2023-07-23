@@ -75,54 +75,54 @@ function playRockPaperScissors(playerSelection)
     
 if (playerSelection === "Rock" && computerSelection === "Rock")
 {
-    results =("Tie! You both chose " + computerSelection);
+    results =("Tie! You both chose \n \n" + computerSelection);
 }
 if (playerSelection === "Paper" && computerSelection === "Paper")
 {
-    results =("Tie! You both chose " + computerSelection);
+    results =("Tie! You both chose \n \n" + computerSelection);
 }
 if (playerSelection === "Scissors" && computerSelection === "Scissors")
 {
-    results =("Tie! You both chose " + computerSelection);
+    results =("Tie! You both chose \n \n" + computerSelection);
 }
 
 if (playerSelection === "Rock" && computerSelection === "Paper")
 {
     scoreComputer++;
-    results =("You Lose! " + computerSelection + " beats " + playerSelection);
+    results =("You Lose! \n \n" + computerSelection + " beats " + playerSelection);
 
 }
 
 if (playerSelection === "Rock" && computerSelection === "Scissors")
 {
     scorePlayer++;
-    results =("You Win! " + playerSelection + " beats " + computerSelection);
+    results =("You Win! \n \n" + playerSelection + " beats " + computerSelection);
 }
 
 if (playerSelection === "Paper" && computerSelection === "Rock")
 {
     scorePlayer++;
-    results =("You Win! " + playerSelection + " beats " + computerSelection);
+    results =("You Win! \n \n" + playerSelection + " beats " + computerSelection);
 }
 
 
 if (playerSelection === "Paper" && computerSelection === "Scissors")
 {
     scoreComputer++;
-    results =("You Lose! " + computerSelection + " beats " + playerSelection);
+    results =("You Lose! \n \n" + computerSelection + " beats " + playerSelection);
 }
 
 if (playerSelection === "Scissors" && computerSelection === "Rock")
 {
     scoreComputer++;
-    results =("You Lose! " + computerSelection + " beats " + playerSelection);
+    results =("You Lose! \n \n" + computerSelection + " beats " + playerSelection);
 }
 
 
 if (playerSelection === "Scissors" && computerSelection === "Paper")
 {
     scorePlayer++;
-    results =("You Win! " + playerSelection + " beats " + computerSelection);
+    results =("You Win! \n \n" + playerSelection + " beats " + computerSelection);
 }
 
 document.getElementById("result").innerText = results;
