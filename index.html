@@ -3,159 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
+<div class="container">
+    <div class="playerschoice" id="playerschoice">
+<button value = "Rock" id="Rock"><h1>Rock</h1></button>
+<button value = "Paper" id="Paper"><h1>Paper</h1></button>
+<button value = "Scissors" id="Scissors"><h1>Scissors</h1></button>
+</div>
+
+
+<div id="result"></div>
+<div id="result2">
+    <div id="result3"></div>
+    <div id="result4"></div>
+</div>
+
+
+</div>
+
+
+
     <script>
 
 
-// let playerSelection = prompt("Choose your sign");
-// playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
-//console.log(playerSelection); debugging
+let scorePlayer = 0;
+let scoreComputer = 0;
+
+
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRockPaperScissors(button.id);
+    })
+})
 
 
 
 
-function game()
+
+
+
+function playRockPaperScissors(playerSelection)
 {
+    let results = "";
 
-    let playerSelection = prompt("Choose your sign");
-    playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1);
-    let computerSelection = getComputerChoice();
-
-    console.log(playRockPaperScissors(playerSelection, computerSelection));
-
-}
-
-
-
-
-function getComputerChoice()
-{
-    
     let random = Math.floor((Math.random() * 3) + 1);
     // console.log(random); debugging
     
         if (random === 1)
         {
             
-            return "Rock";
+            computerSelection = "Rock";
         }
         else if (random === 2)
         {
             
-            return "Paper";
+            computerSelection = "Paper";
         }
         else
         {
            
-            return "Scissors";
+            computerSelection = "Scissors";
         }
 
-}
-
-
-var scorePlayer = 0;
-var scoreComputer = 0;
-
-function playRockPaperScissors(playerSelection, computerSelection)
-{
     
-if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "rock")
+    
+if (playerSelection === "Rock" && computerSelection === "Rock")
 {
-    return ("Tie! You both chose " + computerSelection);
+    results =("Tie! You both chose " + computerSelection);
 }
-if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "paper")
+if (playerSelection === "Paper" && computerSelection === "Paper")
 {
-    return ("Tie! You both chose " + computerSelection);
+    results =("Tie! You both chose " + computerSelection);
 }
-if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "scissors")
+if (playerSelection === "Scissors" && computerSelection === "Scissors")
 {
-    return ("Tie! You both chose " + computerSelection);
-}
-
-if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "paper")
-{
-    scoreComputer++;
-    return ("You Lose! " + computerSelection + " beats " + playerSelection);
-
+    results =("Tie! You both chose " + computerSelection);
 }
 
-if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors")
-{
-    scorePlayer++;
-    return ("You Win! " + playerSelection + " beats " + computerSelection);
-}
-
-if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock")
-{
-    scorePlayer++;
-    return ("You Win! " + playerSelection + " beats " + computerSelection);
-}
-
-
-if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "scissors")
+if (playerSelection === "Rock" && computerSelection === "Paper")
 {
     scoreComputer++;
-    return ("You Lose! " + computerSelection + " beats " + playerSelection);
+    results =("You Lose! " + computerSelection + " beats " + playerSelection);
+
 }
 
-if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "rock")
-{
-    scoreComputer++;
-    return ("You Lose! " + computerSelection + " beats " + playerSelection);
-}
-
-
-if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper")
+if (playerSelection === "Rock" && computerSelection === "Scissors")
 {
     scorePlayer++;
-    return ("You Win! " + playerSelection + " beats " + computerSelection);
+    results =("You Win! " + playerSelection + " beats " + computerSelection);
 }
 
+if (playerSelection === "Paper" && computerSelection === "Rock")
+{
+    scorePlayer++;
+    results =("You Win! " + playerSelection + " beats " + computerSelection);
 }
 
 
-
-
-
-
-
-
-for(let d=0; d<5; d++){
-game();
-
+if (playerSelection === "Paper" && computerSelection === "Scissors")
+{
+    scoreComputer++;
+    results =("You Lose! " + computerSelection + " beats " + playerSelection);
 }
 
+if (playerSelection === "Scissors" && computerSelection === "Rock")
+{
+    scoreComputer++;
+    results =("You Lose! " + computerSelection + " beats " + playerSelection);
+}
+
+
+if (playerSelection === "Scissors" && computerSelection === "Paper")
+{
+    scorePlayer++;
+    results =("You Win! " + playerSelection + " beats " + computerSelection);
+}
+
+document.getElementById("result").innerText = results;
+
+let templatePlayer = "";
+let templateComputer = "";
+
+templatePlayer = "Player: " + scorePlayer;
+templateComputer = "Computer: " + scoreComputer;
+
+document.getElementById("result3").innerText = templatePlayer;
+document.getElementById("result4").innerText = templateComputer;
+
+
+    if (scorePlayer === 5)
+    {
+        let announcement = "You Win with a score of " + scorePlayer + " to " + scoreComputer + ". \n \n Refresh Page (F5) to play again.";
+       
+        document.getElementById("result2").innerText = announcement;
+    }
+    if (scoreComputer === 5)
+    {
+        let announcement = "You Lose with a score of " + scorePlayer + " to " + scoreComputer + ". \n \n Refresh Page (F5) to play again.";
+        
+        document.getElementById("result2").innerText = announcement;
+
+    }
+
+
+
+
+
+return;
+}
+
+
+/*
 if (scorePlayer > scoreComputer)
 {
         console.log("You Win with a score of " + scorePlayer + " to " + scoreComputer + ".");
     }
-    else if (scorePlayer == scoreComputer)
+    else if (scorePlayer == scoreComputer && scorePlayer != 0)
     {
         console.log("Draw! It's a tie with a score of " + scorePlayer + " to " + scoreComputer + ".");
     }
-    else
+    else if (scorePlayer < scoreComputer)
     {
         console.log("You Lose with a score of " + scorePlayer + " to " + scoreComputer + ".");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
@@ -165,4 +182,7 @@ if (scorePlayer > scoreComputer)
 
     </script>
 </body>
+<footer>
+    <p class="footing"><a href="https://github.com/kevankas">Designed by Kevan</a></p>
+</footer>
 </html>
